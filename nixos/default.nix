@@ -86,40 +86,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
-
-  services.kanata = {
-    enable = true;
-    keyboards.cx5500 = {
-      config = ''
-        (deflocalkeys-linux
-          fwd 173
-          fsc 372
-          scl 120
-
-        )
-
-        (defsrc
-          lmeta bck fwd fsc scl sys brdown brup mute vold volu sleep min
-        )
-
-        (deflayer default
-          @lmeta f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 min
-        )
-
-        (deflayer func
-          _ bck fwd fsc scl M-sys M-brdown M-brup M-mute M-vold M-volu sleep f12
-        )
-
-
-        (defalias lmeta (multi (layer-while-held func) rmeta))
-      '';
-
-      extraDefCfg = ''
-        linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
-      '';
-    };
-  };
-  
   virtualisation = {
     waydroid = {
       enable = true;
@@ -158,7 +124,8 @@
 
       rust-analyzer
       gitui
-      spotify-player-git
+      spotify-player
+      # spotify-player-git
       # yaak
       insomnia
       popsicle
@@ -167,6 +134,11 @@
       shadowsocks-rust
       obsidian
       vscode.fhs
+      tinymist
+      typstyle
+      llvmPackages_21.clang-tools
+      ripdrag
+      taplo
     ];
   };
 
@@ -207,7 +179,10 @@
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.space-mono
+    
+    noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-emoji
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

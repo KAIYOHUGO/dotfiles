@@ -34,8 +34,8 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs outputs;};
       modules = [
-        ./nixos/configuration.nix
-        ./hosts/cx5500/hardware-configuration.nix
+        ./nixos
+        ./hosts/cx5500
 
         # cosmic
         # {
