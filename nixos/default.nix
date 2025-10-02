@@ -7,7 +7,22 @@
   pkgs,
   outputs,
   ...
-}: {
+}:
+let
+  user_pkgs = import ./user-pkgs.nix {
+    inherit pkgs;
+  };
+  programs = import ./programs.nix {
+    inherit pkgs lib config;
+  };
+  mine = import ./mine.nix {
+    inherit config;
+  };
+
+in
+programs
+// mine
+// {
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -16,7 +31,10 @@
     ];
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -103,43 +121,12 @@
   };
 
   services.flatpak.enable = true;
-  system.userActivationScripts.flatpakFont = {
-    text = ''
-      mkdir ~/.local/share/fonts
-      cp -L /run/current-system/sw/share/X11/fonts/* ~/.local/share/fonts/
-    '';
-    deps = [];
-  };
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hugo = {
     isNormalUser = true;
-    extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.nushell;
-    packages = with pkgs; [
-      vesktop
-      chromium
-      zoxide
-      yazi
-      starship
-
-      rust-analyzer
-      gitui
-      spotify-player
-      # spotify-player-git
-      # yaak
-      insomnia
-      popsicle
-      trash-cli
-      parsec-bin
-      shadowsocks-rust
-      obsidian
-      vscode.fhs
-      tinymist
-      typstyle
-      llvmPackages_21.clang-tools
-      ripdrag
-      taplo
-    ];
+    packages = with user_pkgs; tui ++ gui ++ helix ++ yazi;
   };
 
   i18n.inputMethod = {
@@ -149,15 +136,6 @@
       fcitx5-rime
     ];
     fcitx5.waylandFrontend = true;
-  };
-
-  programs.localsend.enable = true;
-  programs.firefox.enable = true;
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   # List packages installed in system profile.
@@ -170,20 +148,12 @@
     nushell
     cosmic-store
     wl-clipboard
+    trash-cli
   ];
 
   environment.variables = {
     EDITOR = "hx";
   };
-
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    nerd-fonts.space-mono
-    
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
