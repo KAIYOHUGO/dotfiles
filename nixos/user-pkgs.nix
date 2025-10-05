@@ -7,6 +7,7 @@
       gitui
       spotify-player
       shadowsocks-rust
+      todui
     ];
 
     gui = with pkgs; [

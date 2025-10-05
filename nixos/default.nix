@@ -22,11 +22,9 @@ let
     inherit pkgs lib config;
   };
 
+  merge = lib.attrsets.recursiveUpdate;
 in
-programs
-// mine
-// patch
-// {
+merge (merge (merge programs mine) patch) {
   nixpkgs = {
     # You can add overlays here
     overlays = [
