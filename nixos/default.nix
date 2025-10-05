@@ -18,10 +18,14 @@ let
   mine = import ./mine.nix {
     inherit config;
   };
+  patch = import ./patch {
+    inherit pkgs lib config;
+  };
 
 in
 programs
 // mine
+// patch
 // {
   nixpkgs = {
     # You can add overlays here
