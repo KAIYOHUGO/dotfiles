@@ -19,6 +19,7 @@
       extraDefCfg = ''
         linux-dev-names-include ("POP Icon Keys")
         process-unmapped-keys yes
+        linux-output-device-name "kanata-external"
       '';
     };
   };
