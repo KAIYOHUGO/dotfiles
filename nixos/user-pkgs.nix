@@ -42,6 +42,7 @@
     yazi = with pkgs; [
       yazi
       ripdrag
+      ouch
     ];
     
 }
