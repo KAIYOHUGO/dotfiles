@@ -3,6 +3,7 @@
   lib,
   pkgs,
   modulesPath,
+  merge,
   ...
 }:
 let
@@ -18,9 +19,13 @@ let
   keymap = import ./keymap.nix {
     inherit config lib pkgs;
   };
-in
-hardware
-// keymap
-// {
 
-}
+  audio-patch = import ./audio-patch.nix {
+    inherit config;
+  };
+in
+merge [
+  hardware
+  keymap
+  audio-patch
+]
