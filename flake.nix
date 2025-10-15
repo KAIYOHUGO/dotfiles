@@ -3,14 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    # nixos-cosmic.url = "github:jerbaroo/nixos-cosmic";
-    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    rota = {
+      url = "github:kaiyohugo/rota";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       self,
       nixpkgs,
+      rota,
     }@inputs:
     let
       inherit (self) outputs;
@@ -34,21 +37,13 @@
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
 
-      nixosConfigurations.cx5500 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.cx5500 = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { inherit inputs outputs merge; };
         modules = [
           ./nixos
           ./hosts/cx5500
-
-          # cosmic
-          # {
-          #   nix.settings = {
-          #     substituters = [ "https://cosmic.cachix.org/" ];
-          #     trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-          #   };
-          # }
-          # nixos-cosmic.nixosModules.default
+          rota.nixosModules.${system}
         ];
       };
     };

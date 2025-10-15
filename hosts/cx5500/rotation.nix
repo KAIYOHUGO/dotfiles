@@ -1,0 +1,55 @@
+{
+  config,
+  lib,
+  pkgs,
+}:
+{
+  hardware.sensor.iio.enable = true;
+  services.rota = {
+    enable = true;
+    packages = with pkgs; [ cosmic-randr ];
+    enviroment = {
+      XDG_RUNTIME_DIR = "/run/user/1000";
+      WAYLAND_DISPLAY = "wayland-1";
+    };
+    config = ''
+      settings {
+        default-mode "laptop"
+        switch "/dev/input/event3"
+      }
+
+      varibles {
+        display-width "1920"
+        display-height "1080"
+        display "eDP-1"
+      }
+
+      actions { 
+        on-mode-laptop {
+          action "on-rotate-normal"
+          rotation "disable" 
+        }
+
+        on-mode-tablet {
+          rotation "enable"
+        }
+
+         on-rotate-normal {
+          cmd "cosmic-randr" "mode" "--transform" "normal" "@display" "@display-width" "@display-height"
+        }
+
+         on-rotate-left-up {
+          cmd "cosmic-randr" "mode" "--transform" "rotate90" "@display" "@display-width" "@display-height"
+        }
+
+         on-rotate-right-up {
+          cmd "cosmic-randr" "mode" "--transform" "rotate270" "@display" "@display-width" "@display-height"
+        }
+
+         on-rotate-bottom-up {
+          cmd "cosmic-randr" "mode" "--transform" "rotate180" "@display" "@display-width" "@display-height"
+        }
+      }
+    '';
+  };
+}

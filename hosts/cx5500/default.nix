@@ -23,9 +23,14 @@ let
   audio-patch = import ./audio-patch.nix {
     inherit config;
   };
+
+  rotation = import ./rotation.nix {
+    inherit config lib pkgs;
+  };
 in
 merge [
   hardware
   keymap
   audio-patch
+  rotation
 ]
