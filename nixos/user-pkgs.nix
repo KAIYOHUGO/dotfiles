@@ -38,6 +38,9 @@
 
     # nix
     nil
+
+    # discord
+    discord-rpc-lsp
   ];
 
   yazi = with pkgs; [
