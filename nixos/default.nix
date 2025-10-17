@@ -131,7 +131,7 @@ merge [
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
       shell = pkgs.nushell;
-      packages = with user_pkgs; tui ++ gui ++ helix ++ yazi;
+      packages = with user_pkgs; tui ++ gui ++ helix ++ yazi ++ game;
     };
 
     i18n.inputMethod = {

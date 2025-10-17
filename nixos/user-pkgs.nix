@@ -1,48 +1,52 @@
 {
   pkgs,
-}: {
-    tui = with pkgs; [
-      zoxide
-      starship
-      gitui
-      spotify-player
-      shadowsocks-rust
-      todui
-    ];
+}:
+{
+  tui = with pkgs; [
+    zoxide
+    starship
+    gitui
+    spotify-player
+    shadowsocks-rust
+    todui
+  ];
 
-    gui = with pkgs; [
-      vesktop
-      chromium
-      insomnia
-      popsicle
-      parsec-bin
-      obsidian
-      vscode.fhs
-      oculante
-    ];
+  gui = with pkgs; [
+    vesktop
+    chromium
+    insomnia
+    popsicle
+    parsec-bin
+    obsidian
+    vscode.fhs
+    oculante
+  ];
 
-    helix = with pkgs; [
-      # rust
-      rust-analyzer
+  helix = with pkgs; [
+    # rust
+    rust-analyzer
 
-      # typst
-      tinymist
-      typstyle
+    # typst
+    tinymist
+    typstyle
 
-      # c/c++
-      llvmPackages_21.clang-tools
+    # c/c++
+    llvmPackages_21.clang-tools
 
-      # toml
-      taplo
+    # toml
+    taplo
 
-      # nix
-      nil
-    ];
+    # nix
+    nil
+  ];
 
-    yazi = with pkgs; [
-      yazi
-      ripdrag
-      ouch
-    ];
-    
+  yazi = with pkgs; [
+    yazi
+    ripdrag
+    ouch
+  ];
+
+  game = with pkgs; [
+    gdlauncher
+  ];
 }
