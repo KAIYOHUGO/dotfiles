@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
 }:
 {
   tui = with pkgs; [
@@ -19,29 +20,36 @@
     parsec-bin
     obsidian
     vscode.fhs
+    zed-editor
     oculante
   ];
 
-  helix = with pkgs; [
-    # rust
-    rust-analyzer
+  helix =
+    with pkgs;
+    [
+      # rust
+      rust-analyzer
 
-    # typst
-    tinymist
-    typstyle
+      # typst
+      tinymist
+      typstyle
 
-    # c/c++
-    llvmPackages_21.clang-tools
+      # c/c++
+      llvmPackages_21.clang-tools
 
-    # toml
-    taplo
+      # toml
+      taplo
 
-    # nix
-    nil
+      # nix
+      nil
 
-    # discord
-    discord-rpc-lsp
-  ];
+      # discord
+      discord-rpc-lsp
+    ]
+    ++ [
+      # wakatime
+      inputs.wakatime-ls.packages.${pkgs.system}.default
+    ];
 
   yazi = with pkgs; [
     yazi

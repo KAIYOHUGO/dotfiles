@@ -5,13 +5,14 @@
   config,
   lib,
   pkgs,
+  inputs,
   outputs,
   merge,
   ...
 }:
 let
   user_pkgs = import ./user-pkgs.nix {
-    inherit pkgs;
+    inherit pkgs inputs;
   };
   programs = import ./programs.nix {
     inherit pkgs lib config;
@@ -20,7 +21,12 @@ let
     inherit config;
   };
   patch = import ./patch {
-    inherit pkgs lib config merge;
+    inherit
+      pkgs
+      lib
+      config
+      merge
+      ;
   };
 in
 merge [

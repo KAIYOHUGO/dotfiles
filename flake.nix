@@ -7,6 +7,10 @@
       url = "github:kaiyohugo/rota";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wakatime-ls = {
+      url = "github:mrnossiom/wakatime-ls";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       self,
       nixpkgs,
       rota,
+      ...
     }@inputs:
     let
       inherit (self) outputs;
