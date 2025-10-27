@@ -22,6 +22,7 @@
     vscode.fhs
     zed-editor
     oculante
+    yaak-patch
   ];
 
   helix =
