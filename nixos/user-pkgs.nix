@@ -3,12 +3,16 @@
   inputs,
 }:
 {
-  tui = with pkgs; [
+  cli = with pkgs; [
     zoxide
+    shadowsocks-rust
+    sshfs
+  ];
+
+  tui = with pkgs; [
     starship
     gitui
     spotify-player
-    shadowsocks-rust
     todui
   ];
 
@@ -54,8 +58,20 @@
 
   yazi = with pkgs; [
     yazi
+
+    # drag-n-drop
     ripdrag
+
+    # compression
     ouch
+
+    # video
+    mpv
+  ];
+
+  digital = with pkgs;[
+    digital
+    iverilog
   ];
 
   game = with pkgs; [
