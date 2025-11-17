@@ -53,7 +53,7 @@
     ]
     ++ [
       # wakatime
-      inputs.wakatime-ls.packages.${pkgs.system}.default
+      inputs.wakatime-ls.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
   yazi = with pkgs; [
