@@ -2,7 +2,8 @@
   config,
   lib,
   pkgs,
-}: {
+}:
+{
   services.kanata = {
     enable = true;
     keyboards.cx5500 = {
@@ -43,10 +44,13 @@
         )
       '';
 
+      devices = [
+        "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+      ];
+
       extraDefCfg = ''
-        linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
         process-unmapped-keys yes
       '';
     };
-  };    
+  };
 }
