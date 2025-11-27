@@ -5,6 +5,7 @@
 {
   cli = with pkgs; [
     zoxide
+    carapace
     shadowsocks-rust
     sshfs
   ];
@@ -76,5 +77,6 @@
 
   game = with pkgs; [
     gdlauncher
+    mindustry-wayland
   ];
 }
