@@ -14,10 +14,14 @@ let
   nix-ld = import ./nix-ld.nix {
     inherit config pkgs;
   };
+  disable-hand-free = import ./disable-hand-free.nix {
+    inherit config;
+  };
 
 in
 merge [
   pop-icon-key
   libinput-quirk
   nix-ld
+  disable-hand-free
 ]
