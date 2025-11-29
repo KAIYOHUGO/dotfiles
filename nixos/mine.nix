@@ -9,5 +9,7 @@
     "image/jpeg" = "oculante.desktop";
 
     "application/pdf" = "firefox.desktop";
+
+    "text/plain" = "Helix.desktop";
   };
 }
