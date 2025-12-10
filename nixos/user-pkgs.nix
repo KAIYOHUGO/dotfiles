@@ -8,6 +8,7 @@
     carapace
     shadowsocks-rust
     sshfs
+    steam-run
   ];
 
   tui = with pkgs; [
