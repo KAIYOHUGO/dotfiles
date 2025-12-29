@@ -15,11 +15,27 @@
         actions = {
           update-props = {
             "api.alsa.headroom" = "4096";
+            # hide description
+            "device.profile.description" = "";
           };
         };
       }
 
-      # fix pro audio
+      # hide description
+      {
+        matches = [
+          {
+            "node.name" = "~alsa_input.*";
+          }
+        ];
+        actions = {
+          update-props = {
+            "device.profile.description" = "";
+          };
+        };
+      }
+
+       # fix pro audio
       {
         matches = [
           {
