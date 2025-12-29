@@ -2,9 +2,9 @@
   config,
   lib,
   pkgs,
-}: {
-
-    pkgs = with pkgs; [
-      
-    ];
+}:
+{
+  nix.settings = {
+    trusted-users = [ "@wheel" ];
+  };
 }

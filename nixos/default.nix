@@ -20,6 +20,9 @@ let
   mine = import ./mine.nix {
     inherit config;
   };
+  system = import ./system.nix {
+    inherit pkgs lib config;
+  };
   patch = import ./patch {
     inherit
       pkgs
@@ -33,6 +36,7 @@ merge [
   programs
   mine
   patch
+  system
   {
     nixpkgs = {
       # You can add overlays here
