@@ -11,6 +11,10 @@
       url = "github:mrnossiom/wakatime-ls";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spotify-player = {
+      url = "github:aome510/spotify-player";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,7 +34,7 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
-      merge = nixpkgs.lib.lists.fold nixpkgs.lib.attrsets.recursiveUpdate { };
+      merge = nixpkgs.lib.lists.foldl nixpkgs.lib.attrsets.recursiveUpdate { };
     in
     {
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});

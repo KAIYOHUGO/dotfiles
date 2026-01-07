@@ -6,6 +6,7 @@
   cli = with pkgs; [
     zoxide
     carapace
+    atuin
     shadowsocks-rust
     sshfs
     steam-run
@@ -14,7 +15,13 @@
   tui = with pkgs; [
     starship
     gitui
-    spotify-player
+    # I hate spotify, pls fix ur API
+    # spotify-player
+    (inputs.spotify-player.defaultPackage.${pkgs.stdenv.hostPlatform.system}.override {
+      withImage = false;
+      withSixel = false;
+    })
+
     todui
   ];
 
@@ -71,7 +78,7 @@
     mpv
   ];
 
-  digital = with pkgs;[
+  digital = with pkgs; [
     digital
     iverilog
   ];
