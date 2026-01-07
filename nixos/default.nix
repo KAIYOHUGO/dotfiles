@@ -62,6 +62,10 @@ merge [
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
+    networking.networkmanager.plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
+
     # Set your time zone.
     # time.timeZone = "Europe/Amsterdam";
 
