@@ -47,4 +47,6 @@
     DefaultEnvironment="PATH=/run/wrappers/bin:/etc/profiles/per-user/%u/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:/home/%u/.local/share/flatpak/exports/bin"
   '';
 
+  programs.direnv.enable = true;
+
 }
