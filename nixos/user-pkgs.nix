@@ -66,8 +66,6 @@
     ];
 
   yazi = with pkgs; [
-    yazi
-
     # drag-n-drop
     ripdrag
 

@@ -15,6 +15,18 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  programs.yazi = {
+    enable = true;
+    plugins = {
+      inherit (pkgs.yaziPlugins) ouch starship mount;
+    };
+    initLua = ./yazi/init.lua;
+    settings = {
+      yazi = lib.importTOML ./yazi/yazi.toml;
+      keymap = lib.importTOML ./yazi/keymap.toml;
+    };
+  };
+
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
