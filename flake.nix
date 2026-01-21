@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     rota = {
       url = "github:kaiyohugo/rota";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +41,13 @@
       merge = nixpkgs.lib.lists.foldl nixpkgs.lib.attrsets.recursiveUpdate { };
     in
     {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = forAllSystems (
+        system:
+        import ./pkgs {
+          pkgs = nixpkgs.legacyPackages.${system};
+          inputs = inputs;
+        }
+      );
 
       # Formatter for your nix files, available through 'nix fmt'
       # Other options beside 'alejandra' include 'nixpkgs-fmt'
