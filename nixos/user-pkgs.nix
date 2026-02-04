@@ -10,6 +10,7 @@
     shadowsocks-rust
     sshfs
     steam-run
+    gh
   ];
 
   tui = with pkgs; [
@@ -32,12 +33,12 @@
     popsicle
     parsec-bin
     obsidian
-    vscode.fhs
     zed-editor
     oculante
     yaak-patch
   ];
 
+  
   helix =
     with pkgs;
     [
