@@ -31,7 +31,7 @@
   boot.kernelParams = [
     "usbcore.autosuspend=-1"
   ];
-
+  boot.kernel.sysctl."kernel.sysrq" = 1;
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0d63adf3-9f29-4e34-99cc-58cff7dbe3a1";
     fsType = "btrfs";
