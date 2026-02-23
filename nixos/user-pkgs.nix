@@ -17,13 +17,14 @@
     starship
     gitui
     # I hate spotify, pls fix ur API
-    # spotify-player
-    (inputs.spotify-player.defaultPackage.${pkgs.stdenv.hostPlatform.system}.override {
-      withImage = false;
-      withSixel = false;
-    })
+    spotify-player
+    # (inputs.spotify-player.defaultPackage.${pkgs.stdenv.hostPlatform.system}.override {
+    #   withImage = false;
+    #   withSixel = false;
+    # })
 
     todui
+    wiremix
   ];
 
   gui = with pkgs; [
@@ -38,7 +39,6 @@
     yaak-patch
   ];
 
-  
   helix =
     with pkgs;
     [
