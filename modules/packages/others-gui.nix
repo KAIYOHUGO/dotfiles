@@ -11,12 +11,15 @@
         parsec-bin
         oculante
 
-        self'.packages.yaak
         oculante
 
         digital
         iverilog
         xournalpp
+
+        
+        self'.packages.yaak
+        self'.packages.gdlauncher
       ];
     }
   );
