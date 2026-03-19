@@ -32,6 +32,9 @@
 
           # nix
           nil
+
+          # obsidian
+          markdown-oxide
         ]
         ++ [
           # discord
