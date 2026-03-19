@@ -18,7 +18,8 @@
         xournalpp
 
         
-        self'.packages.yaak
+        # self'.packages.yaak
+        yaak
         self'.packages.gdlauncher
       ];
     }
