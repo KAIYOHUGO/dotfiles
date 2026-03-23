@@ -16,6 +16,10 @@
       url = "github:mrnossiom/wakatime-ls";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bookokrat = {
+      url = "github:bugzmanov/bookokrat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     import-tree.url = "github:vic/import-tree";
 

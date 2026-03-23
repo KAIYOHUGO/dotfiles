@@ -1,7 +1,7 @@
 { moduleWithSystem, ... }:
 {
   flake.modules.nixos.base = moduleWithSystem (
-    { self', ... }:
+    { self', inputs', ... }:
     { config, pkgs, ... }:
     {
       programs.localsend.enable = true;

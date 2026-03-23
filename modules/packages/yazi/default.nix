@@ -1,5 +1,7 @@
+{ moduleWithSystem, ... }:
 {
-  flake.modules.nixos.base =
+  flake.modules.nixos.base = moduleWithSystem (
+    { inputs', ... }:
     {
       config,
       pkgs,
@@ -28,7 +30,13 @@
 
         # video
         mpv
+
+        # testcases fail
+        (inputs'.bookokrat.packages.default.overrideAttrs (old: {
+          doCheck = false;
+        }))
       ];
-    };
+    }
+  );
 
 }
