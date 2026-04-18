@@ -16,6 +16,7 @@
         digital
         iverilog
         xournalpp
+        blockbench
 
         
         # self'.packages.yaak
