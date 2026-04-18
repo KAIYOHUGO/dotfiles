@@ -20,6 +20,11 @@
       url = "github:bugzmanov/bookokrat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cosmic-tomat= {
+      url = "github:kaiyohugo/cosmic-tomat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     import-tree.url = "github:vic/import-tree";
 
