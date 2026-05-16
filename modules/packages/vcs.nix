@@ -4,9 +4,14 @@
     {
       environment.systemPackages = with pkgs; [
         gh
-        gitui
+
+        # git
         git
+        gitui
+
+        # jj
         jujutsu
+        lazyjj
       ];
     };
 }
