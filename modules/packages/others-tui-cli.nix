@@ -13,6 +13,7 @@
         wiremix
 
         self'.packages.todui
+        inputs'.astuin.packages.default
       ];
     }
   );

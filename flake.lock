@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "astuin": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778693845,
+        "narHash": "sha256-i7Kbcd7+tMFQn8bPgkzFIxzEJ7o+0hSzghiZ4LBXwN8=",
+        "owner": "kaiyohugo",
+        "repo": "astuin",
+        "rev": "543ab8018acbd59f5f4101ad29aa07a8ef5b8f48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kaiyohugo",
+        "repo": "astuin",
+        "type": "github"
+      }
+    },
     "bookokrat": {
       "inputs": {
         "flake-utils": "flake-utils",

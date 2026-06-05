@@ -28,6 +28,10 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    astuin = {
+      url = "github:kaiyohugo/astuin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
 
     import-tree.url = "github:vic/import-tree";
