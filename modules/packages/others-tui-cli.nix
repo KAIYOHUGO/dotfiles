@@ -14,6 +14,7 @@
 
         self'.packages.todui
         inputs'.astuin.packages.default
+        concord-tui
       ];
     }
   );
