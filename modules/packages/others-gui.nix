@@ -16,7 +16,9 @@
         digital
         iverilog
         xournalpp
+        rnote
         blockbench
+        cosmic-monitor
 
         
         # self'.packages.yaak
