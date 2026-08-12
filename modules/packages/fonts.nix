@@ -5,6 +5,7 @@
       fonts.fontDir.enable = true;
       fonts.packages = with pkgs; [
         nerd-fonts.space-mono
+        monaspace
 
         noto-fonts
         noto-fonts-cjk-sans

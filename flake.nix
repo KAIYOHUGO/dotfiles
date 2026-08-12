@@ -20,11 +20,11 @@
       url = "github:bugzmanov/bookokrat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cosmic-tomat= {
+    cosmic-tomat = {
       url = "github:kaiyohugo/cosmic-tomat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-index-database= {
+    nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -32,7 +32,10 @@
       url = "github:kaiyohugo/astuin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    yazi-flavors = {
+      url = "github:aguirre-matteo/nix-yazi-flavors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     import-tree.url = "github:vic/import-tree";
 
