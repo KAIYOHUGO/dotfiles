@@ -1,7 +1,7 @@
 { moduleWithSystem, ... }:
 {
   flake.modules.nixos.base = moduleWithSystem (
-    { inputs', ... }:
+    { inputs', self', ... }:
     {
       config,
       pkgs,
@@ -18,7 +18,20 @@
         settings = {
           yazi = lib.importTOML ./yazi.toml;
           keymap = lib.importTOML ./keymap.toml;
+          theme = {
+            flavor = {
+              dark = "catppuccin-mocha";
+            };
+          };
         };
+        flavors = {
+          # inherit (inputs'.yazi-flavors.packages)
+          # the newest version
+          inherit (self'.packages)
+            catppuccin-mocha
+            ;
+        };
+
       };
 
       environment.systemPackages = with pkgs; [
