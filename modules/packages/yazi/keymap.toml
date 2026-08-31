@@ -13,6 +13,11 @@ on = ["C"]
 run = "plugin ouch"
 desc = "Compress with ouch"
 
+# wl-clipboard"
+[[mgr.prepend_keymap]]
+on = "<C-y>"
+run = ["plugin wl-clipboard"]
+
 [mgr]
 
 keymap = [
