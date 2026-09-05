@@ -29,6 +29,8 @@
       boot.extraModulePackages = [ ];
       boot.kernelParams = [
         "usbcore.autosuspend=-1"
+        "i915.force_probe=!9a49"
+        "xe.force_probe=9a49"
       ];
       boot.kernel.sysctl."kernel.sysrq" = 1;
       fileSystems."/" = {
