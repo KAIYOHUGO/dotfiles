@@ -12,7 +12,7 @@
             url = "https://cdn-raw.gdl.gg/launcher/GDLauncher__${version}__linux__x64.AppImage";
             hash = "sha256-BgvliocGTNtI7s1aN551n+MLyqGTbjGs1PjUkItUtks=";
           };
-          appimageContents = appimageTools.extractType2 { inherit pname version src; };
+          appimageContents = appimageTools.extract { inherit pname version src; };
         in
         appimageTools.wrapType2 {
           inherit pname version src;
