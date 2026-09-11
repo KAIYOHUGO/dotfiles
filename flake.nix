@@ -36,6 +36,10 @@
       url = "github:aguirre-matteo/nix-yazi-flavors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    concord = {
+      url = "github:chojs23/concord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     import-tree.url = "github:vic/import-tree";
 
