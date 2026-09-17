@@ -12,7 +12,7 @@
       programs.yazi = {
         enable = true;
         plugins = {
-          inherit (pkgs.yaziPlugins) ouch starship mount wl-clipboard;
+          inherit (pkgs.yaziPlugins) ouch starship mount wl-clipboard drag;
         };
         initLua = ./init.lua;
         settings = {
