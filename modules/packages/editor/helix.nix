@@ -32,6 +32,7 @@
 
           # nix
           nil
+          nixd
 
           # obsidian
           markdown-oxide
