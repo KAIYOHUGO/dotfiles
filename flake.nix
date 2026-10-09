@@ -40,10 +40,20 @@
       url = "github:chojs23/concord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix.url = "github:helix-editor/helix";
 
     import-tree.url = "github:vic/import-tree";
 
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://helix.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+    ];
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

@@ -15,7 +15,8 @@
       environment.systemPackages =
         with pkgs;
         [
-          helix
+          # change to upstream version
+          # helix
 
           # rust
           rust-analyzer
@@ -43,6 +44,8 @@
 
           # wakatime
           inputs'.wakatime-ls.packages.default
+
+          inputs'.helix.packages.default
         ];
     }
   );
