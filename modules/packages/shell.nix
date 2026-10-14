@@ -13,6 +13,7 @@
         carapace
         atuin
         starship
+        nh
       ];
     }
   );
