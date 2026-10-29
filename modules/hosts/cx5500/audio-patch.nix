@@ -38,21 +38,6 @@
             };
           }
 
-          # fix pro audio
-          {
-            matches = [
-              {
-                "alsa.card" = "0";
-              }
-            ];
-            actions = {
-              update-props = {
-                "device.profile.pro" = "false";
-              };
-
-            };
-          }
-
           # Speaker
           {
             matches = [
